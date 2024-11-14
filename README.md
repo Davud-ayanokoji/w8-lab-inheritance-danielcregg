@@ -317,18 +317,18 @@ sequenceDiagram
 
 ### DIY Exercise: School Management
 1. Create a Person class with:
-   - Protected fields: name (String) and age (int)
+   - Private fields: name (String) and age (int)
    - Constructor that initializes both fields
-   - Method introduce() that prints "Hi, I'm [name], [age] years old"
+   - Create getters and setters
 
 2. Create a Student class that extends Person with:
    - Private field: studentId (String)
    - Constructor that initializes name, age, and studentId
-   - Override introduce() to print "Hi, I'm [name], [age] years old, student ID: [studentId]"
-
+   - Create getters and setters
+   
 In your Main class:
 - Create instances of both Person and Student
-- Call introduce() on both instances
+- Print the details of both using print statements and the getters and setters.
 
 ## Summary
 - Definition and Basics of Inheritance
