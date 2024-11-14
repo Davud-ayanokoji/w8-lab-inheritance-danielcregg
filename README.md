@@ -235,7 +235,6 @@ Java doesn't support multiple inheritance with classes to avoid:
 3. Potential naming conflicts
 
 Instead, Java provides interfaces for implementing multiple inheritance of behavior.
-```
 
 ## 4. The Object Class
 
