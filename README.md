@@ -211,20 +211,7 @@ classDiagram
     }
 ```
 
-#### 4. Hybrid Inheritance (Not Supported in Java)
-Combination of multiple types of inheritance.
-
-```mermaid
-classDiagram
-    A <|-- B
-    A <|-- C
-    B <|-- D
-    C <|-- D
-```
-
-This is not supported in Java because it can lead to the "Diamond Problem" - ambiguity in method resolution when class D tries to access methods from class A through both B and C.
-
-#### 5. Multiple Inheritance (Not Supported in Java)
+#### 4. Multiple Inheritance (Not Supported in Java)
 One class inheriting from multiple superclasses.
 
 ```mermaid
