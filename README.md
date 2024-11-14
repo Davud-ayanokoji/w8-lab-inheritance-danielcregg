@@ -1,13 +1,11 @@
 # Java Inheritance Lab
 
 ## Table of Contents
-- [Definition and Basics of Inheritance](#1-definition-and-basics-of-inheritance)
-- [Terminology](#2-terminology)
-- [Implementing Inheritance in Java](#3-implementing-inheritance-in-java)
-- [Subclass Capabilities](#4-subclass-capabilities)
-- [Types of Inheritance](#5-types-of-inheritance)
-- [The Object Class](#6-the-object-class)
-- [Constructors in Inheritance](#7-constructors-in-inheritance)
+1. [Definition and Basics of Inheritance](#1-definition-and-basics-of-inheritance)
+2. [Terminology](#2-terminology)
+3. [Types of Inheritance](#3-types-of-inheritance)
+4. [The Object Class](#4-the-object-class)
+5. [Constructors in Inheritance](#5-constructors-in-inheritance)
 
 ## Lab Setup
 1. Create a package called `ie.atu.inheritance`.
@@ -102,175 +100,157 @@ In your Main class:
 - Create an instance of Car
 - Call move() and playRadio()
 
-## 3. Implementing Inheritance in Java
-
-### Learning Objective
-Learn how to implement inheritance in Java using the extends keyword.
-
-### Explanation
-In Java, inheritance is implemented using the `extends` keyword. The syntax is:
-
-```java
-public class Subclass extends Superclass {
-    // class body
-}
-```
-
-### Example
-```java
-public class Animal {
-    public void makeSound() {
-        System.out.println("Some generic animal sound");
-    }
-}
-
-public class Cat extends Animal {
-    public void purr() {
-        System.out.println("The cat purrs.");
-    }
-}
-```
-
-### Visual Representation
-```mermaid
-classDiagram
-    Animal <|-- Cat
-    class Animal{
-        +makeSound()
-    }
-    class Cat{
-        +purr()
-    }
-```
-
-### DIY Exercise: Shapes
-1. Create a superclass Shape with a method draw() that prints "Drawing a shape."
-2. Create a subclass Circle that extends Shape and overrides draw() to print "Drawing a circle."
-
-In your Main class:
-- Create instances of Shape and Circle
-- Call draw() on both instances
-
-## 4. Subclass Capabilities
-
-### Learning Objective
-Understand what a subclass inherits and how it can override methods, including access to public and protected members, and limitations with private members.
-
-### Explanation
-A subclass inherits:
-- **Public Members:** Accessible anywhere.
-- **Protected Members:** Accessible in the same package or through inheritance in other packages.
-
-A subclass cannot access:
-- **Private Members:** Accessible only within the class they are declared.
-
-Subclasses can:
-- Override Methods: Provide a new implementation for an inherited method.
-- Access Superclass Methods: Using the super keyword.
-
-### Example
-```java
-public class Employee {
-    private String name;
-    protected int employeeId;
-
-    public void work() {
-        System.out.println("Employee is working.");
-    }
-}
-
-public class Manager extends Employee {
-    public void work() {
-        System.out.println("Manager is working.");
-    }
-
-    public void supervise() {
-        System.out.println("Manager is supervising.");
-    }
-}
-```
-
-### Visual Representation
-```mermaid
-classDiagram
-    Employee <|-- Manager
-    class Employee{
-        -String name
-        #int employeeId
-        +work()
-    }
-    class Manager{
-        +work()
-        +supervise()
-    }
-```
-
-### DIY Exercise: Literature
-**Superclass: Book**
-- Private field title (String)
-- Protected field author (String)
-- Public method read() that prints "Reading [title] by [author]."
-
-**Subclass: EBook**
-- Overrides read() to print "Reading [title] by [author] on a digital device."
-- Adds a method download() that prints "Downloading [title]."
-
-In your Main class:
-- Create an instance of EBook
-- Call read() and download()
-
-## 5. Types of Inheritance
+## 3. Types of Inheritance
 
 ### Learning Objective
 Explore different types of inheritance and understand Java's inheritance model.
 
-### Explanation
-Types of Inheritance:
-1. Single Inheritance
-2. Multilevel Inheritance
-3. Hierarchical Inheritance
-4. Hybrid Inheritance (Not supported with classes in Java)
-5. Multiple Inheritance (Not supported with classes in Java)
+### Explanation and Examples
 
-### Example
+#### 1. Single Inheritance
+One class inherits from one superclass.
+
 ```java
-// Multilevel Inheritance
+public class Vehicle {
+    public void move() {
+        System.out.println("Vehicle moves");
+    }
+}
+
+public class Car extends Vehicle {
+    public void honk() {
+        System.out.println("Car honks");
+    }
+}
+```
+
+```mermaid
+classDiagram
+    Vehicle <|-- Car
+    class Vehicle{
+        +move()
+    }
+    class Car{
+        +honk()
+    }
+```
+
+#### 2. Multilevel Inheritance
+Chain of inheritance where subclass becomes superclass for another class.
+
+```java
 public class Animal {
     public void eat() {
-        System.out.println("Animal eats.");
+        System.out.println("Animal eats");
     }
 }
 
 public class Mammal extends Animal {
     public void breathe() {
-        System.out.println("Mammal breathes air.");
+        System.out.println("Mammal breathes");
     }
 }
 
-public class Bat extends Mammal {
-    public void fly() {
-        System.out.println("Bat is flying.");
+public class Dog extends Mammal {
+    public void bark() {
+        System.out.println("Dog barks");
     }
 }
 ```
 
-### Visual Representation
 ```mermaid
 classDiagram
     Animal <|-- Mammal
-    Mammal <|-- Bat
+    Mammal <|-- Dog
     class Animal{
         +eat()
     }
     class Mammal{
         +breathe()
     }
-    class Bat{
-        +fly()
+    class Dog{
+        +bark()
     }
 ```
 
-## 6. The Object Class
+#### 3. Hierarchical Inheritance
+Multiple classes inherit from one superclass.
+
+```java
+public class Shape {
+    public void draw() {
+        System.out.println("Drawing shape");
+    }
+}
+
+public class Circle extends Shape {
+    public void radius() {
+        System.out.println("Has radius");
+    }
+}
+
+public class Square extends Shape {
+    public void sides() {
+        System.out.println("Has four sides");
+    }
+}
+```
+
+```mermaid
+classDiagram
+    Shape <|-- Circle
+    Shape <|-- Square
+    class Shape{
+        +draw()
+    }
+    class Circle{
+        +radius()
+    }
+    class Square{
+        +sides()
+    }
+```
+
+#### 4. Hybrid Inheritance (Not Supported in Java)
+Combination of multiple types of inheritance.
+
+```mermaid
+classDiagram
+    A <|-- B
+    A <|-- C
+    B <|-- D
+    C <|-- D
+```
+
+This is not supported in Java because it can lead to the "Diamond Problem" - ambiguity in method resolution when class D tries to access methods from class A through both B and C.
+
+#### 5. Multiple Inheritance (Not Supported in Java)
+One class inheriting from multiple superclasses.
+
+```mermaid
+classDiagram
+    ClassA <|-- ClassC
+    ClassB <|-- ClassC
+    class ClassA{
+        +methodA()
+    }
+    class ClassB{
+        +methodB()
+    }
+    class ClassC{
+        +methodC()
+    }
+```
+
+Java doesn't support multiple inheritance with classes to avoid:
+1. Ambiguity when same method exists in multiple parent classes
+2. Complexity in method resolution
+3. Potential naming conflicts
+
+Instead, Java provides interfaces for implementing multiple inheritance of behavior.
+```
+
+## 4. The Object Class
 
 ### Learning Objective
 Understand that Object is the root superclass of all classes in Java and its significance in the class hierarchy.
@@ -298,7 +278,7 @@ Create a class Gadget:
 - Do not specify a superclass
 - Override the toString() method to return "This is a gadget."
 
-## 7. Constructors in Inheritance
+## 5. Constructors in Inheritance
 
 ### Learning Objective
 Learn how constructors are used in inheritance, including how to invoke superclass constructors using the super keyword.
@@ -337,8 +317,6 @@ sequenceDiagram
 ## Summary
 - Definition and Basics of Inheritance
 - Terminology
-- Implementing Inheritance in Java
-- Subclass Capabilities
 - Types of Inheritance
 - The Object Class
 - Constructors in Inheritance
