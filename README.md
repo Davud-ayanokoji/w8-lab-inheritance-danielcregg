@@ -267,7 +267,7 @@ Create a class Gadget:
 ## 5. Constructors in Inheritance
 
 ### Learning Objective
-Learn how constructors are used in inheritance, including how to invoke superclass constructors using the super keyword.
+Learn how constructors are used in inheritance, including how to invoke superclass constructors using the ``super`` keyword.
 
 ### Example
 ```java
