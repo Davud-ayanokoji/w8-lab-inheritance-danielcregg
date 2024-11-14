@@ -10,17 +10,19 @@
 - [Constructors in Inheritance](#7-constructors-in-inheritance)
 
 ## Lab Setup
-Create a package called `ie.atu.inheritance`. Create a `Main` class inside this package. Place all the classes from the DIY sections into this package.
+1. Create a package called `ie.atu.inheritance`.
+2. Create a `Main` class inside this package.
+3. Place all the below classes from the DIY sections into this package.
 
 ## 1. Definition and Basics of Inheritance
 
 ### Learning Objective
-Understand the concept of inheritance in Java and how it allows one class to acquire the properties and behaviors of another class.
+Understand the concept of inheritance in Java, how it is implemented and how it allows one class to acquire the properties and behaviors of another class.
 
 ### Explanation
-Inheritance is a fundamental principle in object-oriented programming (OOP) that allows a new class (subclass) to inherit properties and methods from an existing class (superclass). This promotes code reusability and logical organization of classes. The subclass inherits characteristics (fields and methods) from the superclass, allowing you to create specialized classes based on more general ones.
+Inheritance is a fundamental principle in object-oriented programming (OOP) that allows a new class (subclass) to inherit properties and methods from an existing class (superclass). This promotes code reusability and logical organisation of classes. The subclass inherits characteristics (fields and methods) from the superclass, allowing you to create specialized classes based on more general ones.
 
-An "Is-A" relationship is established between the subclass and superclass. For example, an Employee is a Person; hence, Employee can inherit from Person.
+An **"Is-A"** relationship is established between the subclass and superclass. For example, an Employee is a Person; hence, Employee can inherit from Person.
 
 ### Example
 ```java
@@ -58,10 +60,10 @@ classDiagram
 ```
 
 ### DIY Exercise: Animals
-1. Create a Animal class and a Dog class that:
+1. Create a Animal class and a Dog class:
 
 **Animal has:**
-- Protected field species (String)
+- Private field species (String)
 - Method eat() that prints "The [species] is eating."
 
 **Dog extends Animal:**
