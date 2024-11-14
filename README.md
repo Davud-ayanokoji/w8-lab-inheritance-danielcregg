@@ -269,7 +269,22 @@ Create a class Gadget:
 ### Learning Objective
 Learn how constructors are used in inheritance, including how to invoke superclass constructors using the ``super`` keyword.
 
-### Example
+### Explanation
+
+In Java inheritance, constructors play a crucial role in object initialization. When you create an instance of a subclass:
+
+1. The superclass constructor must be called first before the subclass constructor executes
+2. If not explicitly called, Java automatically calls the no-argument constructor of the superclass
+3. Use the super() keyword to call a specific superclass constructor
+4. The super() call must be the first statement in the subclass constructor
+
+Key points to remember:
+
+- Every constructor must invoke a constructor from its superclass, either explicitly or implicitly
+- If the superclass doesn't have a no-argument constructor, the subclass must explicitly call a superclass constructor using super()
+- The super keyword can also be used to access superclass methods and fields
+
+### Example  
 ```java
 public class Person {
     protected String name;
